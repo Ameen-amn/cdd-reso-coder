@@ -22,6 +22,6 @@ void main() {
             .getConcreteNumberTrivia(int.parse(any ?? "1")))
         .thenAnswer((_) async => Right(tNumberTrivia));
 
-    final result = await usecase(number: tNumber);
+    final result = await usecase( Params(number: tNumber));
   });
 }
