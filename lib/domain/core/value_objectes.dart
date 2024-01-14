@@ -5,4 +5,5 @@ import 'package:dartz/dartz.dart';
 abstract class ValueObject<T> {
   const ValueObject();
   Either<ValueFailure<T>, T> get value;
+  bool isValid() => value.isRight();
 }

@@ -16,11 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SignInFormEvent {
-  String get emailString => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String emailString) emailChanged,
-    required TResult Function(String emailString) passwordChanged,
+    required TResult Function(String passwordString) passwordChanged,
     required TResult Function(String emailString)
         registerWithEmailandPassowrdPressed,
     required TResult Function(String emailString)
@@ -31,7 +30,7 @@ mixin _$SignInFormEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String emailString)? emailChanged,
-    TResult? Function(String emailString)? passwordChanged,
+    TResult? Function(String passwordString)? passwordChanged,
     TResult? Function(String emailString)? registerWithEmailandPassowrdPressed,
     TResult? Function(String emailString)? SignInWithEmailandPassowrdPressed,
     TResult? Function(String emailString)? signInWithGooglePressed,
@@ -40,7 +39,7 @@ mixin _$SignInFormEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String emailString)? emailChanged,
-    TResult Function(String emailString)? passwordChanged,
+    TResult Function(String passwordString)? passwordChanged,
     TResult Function(String emailString)? registerWithEmailandPassowrdPressed,
     TResult Function(String emailString)? SignInWithEmailandPassowrdPressed,
     TResult Function(String emailString)? signInWithGooglePressed,
@@ -82,10 +81,6 @@ mixin _$SignInFormEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $SignInFormEventCopyWith<SignInFormEvent> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -93,8 +88,6 @@ abstract class $SignInFormEventCopyWith<$Res> {
   factory $SignInFormEventCopyWith(
           SignInFormEvent value, $Res Function(SignInFormEvent) then) =
       _$SignInFormEventCopyWithImpl<$Res, SignInFormEvent>;
-  @useResult
-  $Res call({String emailString});
 }
 
 /// @nodoc
@@ -106,28 +99,13 @@ class _$SignInFormEventCopyWithImpl<$Res, $Val extends SignInFormEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? emailString = null,
-  }) {
-    return _then(_value.copyWith(
-      emailString: null == emailString
-          ? _value.emailString
-          : emailString // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$EmailChangedImplCopyWith<$Res>
-    implements $SignInFormEventCopyWith<$Res> {
+abstract class _$$EmailChangedImplCopyWith<$Res> {
   factory _$$EmailChangedImplCopyWith(
           _$EmailChangedImpl value, $Res Function(_$EmailChangedImpl) then) =
       __$$EmailChangedImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String emailString});
 }
@@ -156,15 +134,23 @@ class __$$EmailChangedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EmailChangedImpl implements EmailChanged {
+class _$EmailChangedImpl with DiagnosticableTreeMixin implements EmailChanged {
   const _$EmailChangedImpl(this.emailString);
 
   @override
   final String emailString;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SignInFormEvent.emailChanged(emailString: $emailString)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SignInFormEvent.emailChanged'))
+      ..add(DiagnosticsProperty('emailString', emailString));
   }
 
   @override
@@ -189,7 +175,7 @@ class _$EmailChangedImpl implements EmailChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String emailString) emailChanged,
-    required TResult Function(String emailString) passwordChanged,
+    required TResult Function(String passwordString) passwordChanged,
     required TResult Function(String emailString)
         registerWithEmailandPassowrdPressed,
     required TResult Function(String emailString)
@@ -203,7 +189,7 @@ class _$EmailChangedImpl implements EmailChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String emailString)? emailChanged,
-    TResult? Function(String emailString)? passwordChanged,
+    TResult? Function(String passwordString)? passwordChanged,
     TResult? Function(String emailString)? registerWithEmailandPassowrdPressed,
     TResult? Function(String emailString)? SignInWithEmailandPassowrdPressed,
     TResult? Function(String emailString)? signInWithGooglePressed,
@@ -215,7 +201,7 @@ class _$EmailChangedImpl implements EmailChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String emailString)? emailChanged,
-    TResult Function(String emailString)? passwordChanged,
+    TResult Function(String passwordString)? passwordChanged,
     TResult Function(String emailString)? registerWithEmailandPassowrdPressed,
     TResult Function(String emailString)? SignInWithEmailandPassowrdPressed,
     TResult Function(String emailString)? signInWithGooglePressed,
@@ -278,23 +264,19 @@ class _$EmailChangedImpl implements EmailChanged {
 abstract class EmailChanged implements SignInFormEvent {
   const factory EmailChanged(final String emailString) = _$EmailChangedImpl;
 
-  @override
   String get emailString;
-  @override
   @JsonKey(ignore: true)
   _$$EmailChangedImplCopyWith<_$EmailChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PasswordChangedImplCopyWith<$Res>
-    implements $SignInFormEventCopyWith<$Res> {
+abstract class _$$PasswordChangedImplCopyWith<$Res> {
   factory _$$PasswordChangedImplCopyWith(_$PasswordChangedImpl value,
           $Res Function(_$PasswordChangedImpl) then) =
       __$$PasswordChangedImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({String emailString});
+  $Res call({String passwordString});
 }
 
 /// @nodoc
@@ -308,12 +290,12 @@ class __$$PasswordChangedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? emailString = null,
+    Object? passwordString = null,
   }) {
     return _then(_$PasswordChangedImpl(
-      null == emailString
-          ? _value.emailString
-          : emailString // ignore: cast_nullable_to_non_nullable
+      null == passwordString
+          ? _value.passwordString
+          : passwordString // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -321,15 +303,25 @@ class __$$PasswordChangedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PasswordChangedImpl implements PasswordChanged {
-  const _$PasswordChangedImpl(this.emailString);
+class _$PasswordChangedImpl
+    with DiagnosticableTreeMixin
+    implements PasswordChanged {
+  const _$PasswordChangedImpl(this.passwordString);
 
   @override
-  final String emailString;
+  final String passwordString;
 
   @override
-  String toString() {
-    return 'SignInFormEvent.passwordChanged(emailString: $emailString)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SignInFormEvent.passwordChanged(passwordString: $passwordString)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SignInFormEvent.passwordChanged'))
+      ..add(DiagnosticsProperty('passwordString', passwordString));
   }
 
   @override
@@ -337,12 +329,12 @@ class _$PasswordChangedImpl implements PasswordChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PasswordChangedImpl &&
-            (identical(other.emailString, emailString) ||
-                other.emailString == emailString));
+            (identical(other.passwordString, passwordString) ||
+                other.passwordString == passwordString));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, emailString);
+  int get hashCode => Object.hash(runtimeType, passwordString);
 
   @JsonKey(ignore: true)
   @override
@@ -355,40 +347,40 @@ class _$PasswordChangedImpl implements PasswordChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String emailString) emailChanged,
-    required TResult Function(String emailString) passwordChanged,
+    required TResult Function(String passwordString) passwordChanged,
     required TResult Function(String emailString)
         registerWithEmailandPassowrdPressed,
     required TResult Function(String emailString)
         SignInWithEmailandPassowrdPressed,
     required TResult Function(String emailString) signInWithGooglePressed,
   }) {
-    return passwordChanged(emailString);
+    return passwordChanged(passwordString);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String emailString)? emailChanged,
-    TResult? Function(String emailString)? passwordChanged,
+    TResult? Function(String passwordString)? passwordChanged,
     TResult? Function(String emailString)? registerWithEmailandPassowrdPressed,
     TResult? Function(String emailString)? SignInWithEmailandPassowrdPressed,
     TResult? Function(String emailString)? signInWithGooglePressed,
   }) {
-    return passwordChanged?.call(emailString);
+    return passwordChanged?.call(passwordString);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String emailString)? emailChanged,
-    TResult Function(String emailString)? passwordChanged,
+    TResult Function(String passwordString)? passwordChanged,
     TResult Function(String emailString)? registerWithEmailandPassowrdPressed,
     TResult Function(String emailString)? SignInWithEmailandPassowrdPressed,
     TResult Function(String emailString)? signInWithGooglePressed,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
-      return passwordChanged(emailString);
+      return passwordChanged(passwordString);
     }
     return orElse();
   }
@@ -442,25 +434,21 @@ class _$PasswordChangedImpl implements PasswordChanged {
 }
 
 abstract class PasswordChanged implements SignInFormEvent {
-  const factory PasswordChanged(final String emailString) =
+  const factory PasswordChanged(final String passwordString) =
       _$PasswordChangedImpl;
 
-  @override
-  String get emailString;
-  @override
+  String get passwordString;
   @JsonKey(ignore: true)
   _$$PasswordChangedImplCopyWith<_$PasswordChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$RegisterWithEmailandPassowrdPressedImplCopyWith<$Res>
-    implements $SignInFormEventCopyWith<$Res> {
+abstract class _$$RegisterWithEmailandPassowrdPressedImplCopyWith<$Res> {
   factory _$$RegisterWithEmailandPassowrdPressedImplCopyWith(
           _$RegisterWithEmailandPassowrdPressedImpl value,
           $Res Function(_$RegisterWithEmailandPassowrdPressedImpl) then) =
       __$$RegisterWithEmailandPassowrdPressedImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String emailString});
 }
@@ -492,6 +480,7 @@ class __$$RegisterWithEmailandPassowrdPressedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$RegisterWithEmailandPassowrdPressedImpl
+    with DiagnosticableTreeMixin
     implements RegisterWithEmailandPassowrdPressed {
   const _$RegisterWithEmailandPassowrdPressedImpl(this.emailString);
 
@@ -499,8 +488,17 @@ class _$RegisterWithEmailandPassowrdPressedImpl
   final String emailString;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SignInFormEvent.registerWithEmailandPassowrdPressed(emailString: $emailString)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'SignInFormEvent.registerWithEmailandPassowrdPressed'))
+      ..add(DiagnosticsProperty('emailString', emailString));
   }
 
   @override
@@ -527,7 +525,7 @@ class _$RegisterWithEmailandPassowrdPressedImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String emailString) emailChanged,
-    required TResult Function(String emailString) passwordChanged,
+    required TResult Function(String passwordString) passwordChanged,
     required TResult Function(String emailString)
         registerWithEmailandPassowrdPressed,
     required TResult Function(String emailString)
@@ -541,7 +539,7 @@ class _$RegisterWithEmailandPassowrdPressedImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String emailString)? emailChanged,
-    TResult? Function(String emailString)? passwordChanged,
+    TResult? Function(String passwordString)? passwordChanged,
     TResult? Function(String emailString)? registerWithEmailandPassowrdPressed,
     TResult? Function(String emailString)? SignInWithEmailandPassowrdPressed,
     TResult? Function(String emailString)? signInWithGooglePressed,
@@ -553,7 +551,7 @@ class _$RegisterWithEmailandPassowrdPressedImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String emailString)? emailChanged,
-    TResult Function(String emailString)? passwordChanged,
+    TResult Function(String passwordString)? passwordChanged,
     TResult Function(String emailString)? registerWithEmailandPassowrdPressed,
     TResult Function(String emailString)? SignInWithEmailandPassowrdPressed,
     TResult Function(String emailString)? signInWithGooglePressed,
@@ -617,9 +615,7 @@ abstract class RegisterWithEmailandPassowrdPressed implements SignInFormEvent {
   const factory RegisterWithEmailandPassowrdPressed(final String emailString) =
       _$RegisterWithEmailandPassowrdPressedImpl;
 
-  @override
   String get emailString;
-  @override
   @JsonKey(ignore: true)
   _$$RegisterWithEmailandPassowrdPressedImplCopyWith<
           _$RegisterWithEmailandPassowrdPressedImpl>
@@ -627,13 +623,11 @@ abstract class RegisterWithEmailandPassowrdPressed implements SignInFormEvent {
 }
 
 /// @nodoc
-abstract class _$$SignInWithEmailandPassowrdPressedImplCopyWith<$Res>
-    implements $SignInFormEventCopyWith<$Res> {
+abstract class _$$SignInWithEmailandPassowrdPressedImplCopyWith<$Res> {
   factory _$$SignInWithEmailandPassowrdPressedImplCopyWith(
           _$SignInWithEmailandPassowrdPressedImpl value,
           $Res Function(_$SignInWithEmailandPassowrdPressedImpl) then) =
       __$$SignInWithEmailandPassowrdPressedImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String emailString});
 }
@@ -665,6 +659,7 @@ class __$$SignInWithEmailandPassowrdPressedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SignInWithEmailandPassowrdPressedImpl
+    with DiagnosticableTreeMixin
     implements SignInWithEmailandPassowrdPressed {
   const _$SignInWithEmailandPassowrdPressedImpl(this.emailString);
 
@@ -672,8 +667,17 @@ class _$SignInWithEmailandPassowrdPressedImpl
   final String emailString;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SignInFormEvent.SignInWithEmailandPassowrdPressed(emailString: $emailString)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'SignInFormEvent.SignInWithEmailandPassowrdPressed'))
+      ..add(DiagnosticsProperty('emailString', emailString));
   }
 
   @override
@@ -700,7 +704,7 @@ class _$SignInWithEmailandPassowrdPressedImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String emailString) emailChanged,
-    required TResult Function(String emailString) passwordChanged,
+    required TResult Function(String passwordString) passwordChanged,
     required TResult Function(String emailString)
         registerWithEmailandPassowrdPressed,
     required TResult Function(String emailString)
@@ -714,7 +718,7 @@ class _$SignInWithEmailandPassowrdPressedImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String emailString)? emailChanged,
-    TResult? Function(String emailString)? passwordChanged,
+    TResult? Function(String passwordString)? passwordChanged,
     TResult? Function(String emailString)? registerWithEmailandPassowrdPressed,
     TResult? Function(String emailString)? SignInWithEmailandPassowrdPressed,
     TResult? Function(String emailString)? signInWithGooglePressed,
@@ -726,7 +730,7 @@ class _$SignInWithEmailandPassowrdPressedImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String emailString)? emailChanged,
-    TResult Function(String emailString)? passwordChanged,
+    TResult Function(String passwordString)? passwordChanged,
     TResult Function(String emailString)? registerWithEmailandPassowrdPressed,
     TResult Function(String emailString)? SignInWithEmailandPassowrdPressed,
     TResult Function(String emailString)? signInWithGooglePressed,
@@ -790,9 +794,7 @@ abstract class SignInWithEmailandPassowrdPressed implements SignInFormEvent {
   const factory SignInWithEmailandPassowrdPressed(final String emailString) =
       _$SignInWithEmailandPassowrdPressedImpl;
 
-  @override
   String get emailString;
-  @override
   @JsonKey(ignore: true)
   _$$SignInWithEmailandPassowrdPressedImplCopyWith<
           _$SignInWithEmailandPassowrdPressedImpl>
@@ -800,13 +802,11 @@ abstract class SignInWithEmailandPassowrdPressed implements SignInFormEvent {
 }
 
 /// @nodoc
-abstract class _$$SignInWithGooglePressedImplCopyWith<$Res>
-    implements $SignInFormEventCopyWith<$Res> {
+abstract class _$$SignInWithGooglePressedImplCopyWith<$Res> {
   factory _$$SignInWithGooglePressedImplCopyWith(
           _$SignInWithGooglePressedImpl value,
           $Res Function(_$SignInWithGooglePressedImpl) then) =
       __$$SignInWithGooglePressedImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String emailString});
 }
@@ -836,15 +836,26 @@ class __$$SignInWithGooglePressedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SignInWithGooglePressedImpl implements SignInWithGooglePressed {
+class _$SignInWithGooglePressedImpl
+    with DiagnosticableTreeMixin
+    implements SignInWithGooglePressed {
   const _$SignInWithGooglePressedImpl(this.emailString);
 
   @override
   final String emailString;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SignInFormEvent.signInWithGooglePressed(emailString: $emailString)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'SignInFormEvent.signInWithGooglePressed'))
+      ..add(DiagnosticsProperty('emailString', emailString));
   }
 
   @override
@@ -870,7 +881,7 @@ class _$SignInWithGooglePressedImpl implements SignInWithGooglePressed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String emailString) emailChanged,
-    required TResult Function(String emailString) passwordChanged,
+    required TResult Function(String passwordString) passwordChanged,
     required TResult Function(String emailString)
         registerWithEmailandPassowrdPressed,
     required TResult Function(String emailString)
@@ -884,7 +895,7 @@ class _$SignInWithGooglePressedImpl implements SignInWithGooglePressed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String emailString)? emailChanged,
-    TResult? Function(String emailString)? passwordChanged,
+    TResult? Function(String passwordString)? passwordChanged,
     TResult? Function(String emailString)? registerWithEmailandPassowrdPressed,
     TResult? Function(String emailString)? SignInWithEmailandPassowrdPressed,
     TResult? Function(String emailString)? signInWithGooglePressed,
@@ -896,7 +907,7 @@ class _$SignInWithGooglePressedImpl implements SignInWithGooglePressed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String emailString)? emailChanged,
-    TResult Function(String emailString)? passwordChanged,
+    TResult Function(String passwordString)? passwordChanged,
     TResult Function(String emailString)? registerWithEmailandPassowrdPressed,
     TResult Function(String emailString)? SignInWithEmailandPassowrdPressed,
     TResult Function(String emailString)? signInWithGooglePressed,
@@ -960,9 +971,7 @@ abstract class SignInWithGooglePressed implements SignInFormEvent {
   const factory SignInWithGooglePressed(final String emailString) =
       _$SignInWithGooglePressedImpl;
 
-  @override
   String get emailString;
-  @override
   @JsonKey(ignore: true)
   _$$SignInWithGooglePressedImplCopyWith<_$SignInWithGooglePressedImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -1100,7 +1109,9 @@ class __$$SignInFormStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SignInFormStateImpl implements _SignInFormState {
+class _$SignInFormStateImpl
+    with DiagnosticableTreeMixin
+    implements _SignInFormState {
   const _$SignInFormStateImpl(
       {required this.emailAddress,
       required this.password,
@@ -1120,8 +1131,21 @@ class _$SignInFormStateImpl implements _SignInFormState {
   final Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SignInFormState(emailAddress: $emailAddress, password: $password, isSubmitting: $isSubmitting, showErrorMessages: $showErrorMessages, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SignInFormState'))
+      ..add(DiagnosticsProperty('emailAddress', emailAddress))
+      ..add(DiagnosticsProperty('password', password))
+      ..add(DiagnosticsProperty('isSubmitting', isSubmitting))
+      ..add(DiagnosticsProperty('showErrorMessages', showErrorMessages))
+      ..add(DiagnosticsProperty(
+          'authFailureOrSuccessOption', authFailureOrSuccessOption));
   }
 
   @override
