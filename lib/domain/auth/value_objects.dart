@@ -1,8 +1,9 @@
 import 'package:cdd/domain/core/failure.dart';
+import 'package:cdd/domain/core/value_objectes.dart';
 import 'package:cdd/domain/core/value_validators.dart';
 import 'package:dartz/dartz.dart';
 
-class EmailAddress {
+class EmailAddress extends ValueObject {
   final Either<ValueFailure<String>, String> value;
 
   factory EmailAddress(String input) {
@@ -12,7 +13,7 @@ class EmailAddress {
 }
 
 
-class Password {
+class Password extends ValueObject {
   final Either<ValueFailure<String>, String> value;
 
   factory Password(String input) {
