@@ -1,12 +1,14 @@
 import 'package:cdd/domain/auth/auth_failure.dart';
 import 'package:cdd/domain/auth/i_auth_facade.dart';
 import 'package:cdd/domain/auth/value_objects.dart';
-import 'package:cdd/domain/core/errors.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:injectable/injectable.dart';
 
+@injectable
+@LazySingleton(as: IAuthFacade)
 class FireBaseAuthFacade implements IAuthFacade {
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
