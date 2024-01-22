@@ -39,7 +39,7 @@ dependencies:
   firebase_auth: ^4.16.0
   google_sign_in: ^6.1.6
   injectable: ^2.3.2
-
+  uuid: ^4.2.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
