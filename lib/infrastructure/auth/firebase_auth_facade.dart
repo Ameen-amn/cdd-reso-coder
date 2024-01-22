@@ -1,5 +1,6 @@
 import 'package:cdd/domain/auth/auth_failure.dart';
 import 'package:cdd/domain/auth/i_auth_facade.dart';
+import 'package:cdd/domain/auth/user.dart';
 import 'package:cdd/domain/auth/value_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -16,6 +17,16 @@ class FireBaseAuthFacade implements IAuthFacade {
     this._firebaseAuth,
     this._googleSignIn,
   );
+
+  @override
+  Future<Option<CUser>> getSigndeInUser() async {
+    try {
+      var firebaseUid = _firebaseAuth.currentUser();
+      return optionOf(firebaseUid.toDomain());
+    } catch (_) {
+      return optionOf(null);
+    }
+  }
 
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailandPassword({
@@ -74,5 +85,15 @@ class FireBaseAuthFacade implements IAuthFacade {
     } on PlatformException catch (_) {
       return left(const AuthFailure.serverError());
     }
+  }
+
+  @override
+  Future<void> signOut() {
+    //used when we need to await for a list of functions, since wait itself is a
+    // future we dont need to use async and wait
+    return Future.wait([
+      _googleSignIn.signOut(),
+      _firebaseAuth.signOut(),
+    ]);
   }
 }

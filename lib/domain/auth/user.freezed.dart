@@ -15,25 +15,25 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$User {
+mixin _$CUser {
   UniqueId get id => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
+  $CUserCopyWith<CUser> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UserCopyWith<$Res> {
-  factory $UserCopyWith(User value, $Res Function(User) then) =
-      _$UserCopyWithImpl<$Res, User>;
+abstract class $CUserCopyWith<$Res> {
+  factory $CUserCopyWith(CUser value, $Res Function(CUser) then) =
+      _$CUserCopyWithImpl<$Res, CUser>;
   @useResult
   $Res call({UniqueId id});
 }
 
 /// @nodoc
-class _$UserCopyWithImpl<$Res, $Val extends User>
-    implements $UserCopyWith<$Res> {
-  _$UserCopyWithImpl(this._value, this._then);
+class _$CUserCopyWithImpl<$Res, $Val extends CUser>
+    implements $CUserCopyWith<$Res> {
+  _$CUserCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -55,20 +55,21 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
 }
 
 /// @nodoc
-abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
-  factory _$$UserImplCopyWith(
-          _$UserImpl value, $Res Function(_$UserImpl) then) =
-      __$$UserImplCopyWithImpl<$Res>;
+abstract class _$$CUserImplCopyWith<$Res> implements $CUserCopyWith<$Res> {
+  factory _$$CUserImplCopyWith(
+          _$CUserImpl value, $Res Function(_$CUserImpl) then) =
+      __$$CUserImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({UniqueId id});
 }
 
 /// @nodoc
-class __$$UserImplCopyWithImpl<$Res>
-    extends _$UserCopyWithImpl<$Res, _$UserImpl>
-    implements _$$UserImplCopyWith<$Res> {
-  __$$UserImplCopyWithImpl(_$UserImpl _value, $Res Function(_$UserImpl) _then)
+class __$$CUserImplCopyWithImpl<$Res>
+    extends _$CUserCopyWithImpl<$Res, _$CUserImpl>
+    implements _$$CUserImplCopyWith<$Res> {
+  __$$CUserImplCopyWithImpl(
+      _$CUserImpl _value, $Res Function(_$CUserImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -76,7 +77,7 @@ class __$$UserImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$UserImpl(
+    return _then(_$CUserImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -87,22 +88,22 @@ class __$$UserImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UserImpl implements _User {
-  const _$UserImpl({required this.id});
+class _$CUserImpl implements _CUser {
+  const _$CUserImpl({required this.id});
 
   @override
   final UniqueId id;
 
   @override
   String toString() {
-    return 'User(id: $id)';
+    return 'CUser(id: $id)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UserImpl &&
+            other is _$CUserImpl &&
             (identical(other.id, id) || other.id == id));
   }
 
@@ -112,17 +113,17 @@ class _$UserImpl implements _User {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
-      __$$UserImplCopyWithImpl<_$UserImpl>(this, _$identity);
+  _$$CUserImplCopyWith<_$CUserImpl> get copyWith =>
+      __$$CUserImplCopyWithImpl<_$CUserImpl>(this, _$identity);
 }
 
-abstract class _User implements User {
-  const factory _User({required final UniqueId id}) = _$UserImpl;
+abstract class _CUser implements CUser {
+  const factory _CUser({required final UniqueId id}) = _$CUserImpl;
 
   @override
   UniqueId get id;
   @override
   @JsonKey(ignore: true)
-  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
+  _$$CUserImplCopyWith<_$CUserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
